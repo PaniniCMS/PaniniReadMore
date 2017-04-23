@@ -1,5 +1,5 @@
 # PaniniReadMore
-Adds a `<!--more-->` tag to PaniniCMS, insired by Blogger's "read more" tag.
+Adds a `<!--more-->` tag to PaniniCMS, inspired by Blogger's "read more" tag.
 
 After adding PaniniReadMore to your PaniniCMS installation, you need to tweak your home page a little bit to use the newly added variables by PaniniReadMore!
 
