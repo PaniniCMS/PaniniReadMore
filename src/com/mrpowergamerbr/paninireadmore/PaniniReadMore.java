@@ -1,7 +1,7 @@
 package com.mrpowergamerbr.paninireadmore;
 
 import com.paninicms.plugin.PaniniPlugin;
-import com.paninicms.plugin.event.GetPostEvent;
+import com.paninicms.plugin.event.GetPostsEvent;
 import com.paninicms.utils.blog.Post;
 
 public class PaniniReadMore extends PaniniPlugin {
@@ -11,7 +11,7 @@ public class PaniniReadMore extends PaniniPlugin {
 	}
 	
 	@Override
-	public void onGetPost(GetPostEvent ev) {
+	public void onGetPost(GetPostsEvent ev) {
 		for (Post post : ev.getLoadedPosts()) {
 			String htmlContent = post.content();
 			post.softMetadata().put("hasSummary", htmlContent.contains("<!--more-->"));
