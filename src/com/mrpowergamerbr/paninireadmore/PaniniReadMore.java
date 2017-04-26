@@ -1,16 +1,19 @@
 package com.mrpowergamerbr.paninireadmore;
 
 import com.paninicms.plugin.PaniniPlugin;
-import com.paninicms.plugin.event.GetPostsEvent;
+import com.paninicms.plugin.event.Listener;
+import com.paninicms.plugin.event.SubscribeEvent;
+import com.paninicms.plugin.event.blog.GetPostsEvent;
 import com.paninicms.utils.blog.Post;
 
-public class PaniniReadMore extends PaniniPlugin {
+public class PaniniReadMore extends PaniniPlugin implements Listener {
 	@Override
 	public void onEnable() {
 		System.out.println("PaniniReadMore by MrPowerGamerBR");
+		this.registerListener(this);
 	}
 	
-	@Override
+	@SubscribeEvent
 	public void onGetPost(GetPostsEvent ev) { // When a post is loaded (getAllPosts(...))
 		for (Post post : ev.getLoadedPosts()) { // We are going to do a foreach on every loaded post
 			String htmlContent = post.content(); // Get the HTML content of it
