@@ -3,7 +3,7 @@ package com.mrpowergamerbr.paninireadmore;
 import com.paninicms.plugin.PaniniPlugin;
 import com.paninicms.plugin.event.Listener;
 import com.paninicms.plugin.event.SubscribeEvent;
-import com.paninicms.plugin.event.blog.GetPostsEvent;
+import com.paninicms.plugin.event.blog.GetBlogPostsEvent;
 import com.paninicms.utils.blog.Post;
 
 public class PaniniReadMore extends PaniniPlugin implements Listener {
@@ -14,7 +14,7 @@ public class PaniniReadMore extends PaniniPlugin implements Listener {
 	}
 	
 	@SubscribeEvent
-	public void onGetPost(GetPostsEvent ev) { // When a post is loaded (getAllPosts(...))
+	public void onGetPost(GetBlogPostsEvent ev) { // When a post is loaded (getAllPosts(...))
 		for (Post post : ev.getLoadedPosts()) { // We are going to do a foreach on every loaded post
 			String htmlContent = post.content(); // Get the HTML content of it
 			post.softMetadata().put("hasSummary", htmlContent.contains("<!--more-->")); // And store on our softMetadata HashMap... "does this post contains a read more tag?"
